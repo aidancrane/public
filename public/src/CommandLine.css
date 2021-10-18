@@ -19,6 +19,7 @@
   left: 0.5%;
   bottom: 1%;
   color: lime;
+  text-overflow: clip;
 }
 
 .CommandLineHeadLine {
@@ -33,6 +34,12 @@
   outline-width: 0;
   color: lime;
   font-family: 'Courier New', monospace;
+  caret-color: transparent;
+  width: 1px;
+}
+
+.CommandLineInput::selection {
+  background: #133213;
 }
 
 /* Blinking Cursor Stuff */
