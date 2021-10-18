@@ -1,11 +1,10 @@
 body {
   margin: 0;
-  font-family: 'Courier New';
+  font-family: 'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'Courier New',
-    monospace;
+  font-family: 'Courier New', monospace;
 }
