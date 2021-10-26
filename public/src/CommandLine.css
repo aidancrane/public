@@ -1,3 +1,10 @@
+
+/* Body Stuff */
+
+body::selection {
+  background: #133213;
+}
+
 /* Command Line Stuff */
 .CommandLine {
   text-align: left;
@@ -41,6 +48,11 @@
 .CommandLineInput::selection {
   background: #133213;
 }
+
+.CommandLineHeadLine::selection {
+  background: #133213;
+}
+
 
 /* Blinking Cursor Stuff */
 @keyframes cursor-blink {

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import CommandLine from './CommandLine';
+import Lines from './Lines';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CommandLine />
+    <Lines />
   </React.StrictMode>,
   document.getElementById('root')
 );

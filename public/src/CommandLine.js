@@ -20,6 +20,7 @@ class CommandLine extends React.Component {
     this.commandLengthInEM = 0;
 
     this.focusCommandLine = this.focusCommandLine.bind(this);
+
   }
 
   // https://stackoverflow.com/a/58705306
@@ -68,18 +69,36 @@ class CommandLine extends React.Component {
     }
   }
 
+  // Return command after enter key pressed.
+  // Also monitors any input on the keyboard.
+  handleKeyDown = (e) => {
+    if (e.key === "Enter")
+    {
+      // Log to console command was submitted.
+      console.log("Command Submitted: " + this.command.current.value);
+      // Submit to parent.
+      this.props.commandSubmitted(this.command.current.value);
+      // Clear command line.
+      this.command.current.value = "";
+      // Re-position cursor.
+      this.setCaretPosition();
+    }
+  }
+
   render() {
     return (<div className="CommandLine" onClick={this.focusCommandLine}>
       <header className="CommandLineBackground"></header>
       <div className="CommandLineText">
-        <div ref={this.line} className="CommandLineHeadLine">
+        <div ref={this.line} onClick={this.addChild} className="CommandLineHeadLine">
           aidan@dark.infinityflame.co.uk ¬ /var/www/subdomains/dark >
           <input autoFocus={true} ref={this.command} style={{
               width: this.state.commandLengthInEM,
               maxWidth: "95vw"
             }} onChange={(e) => {
               this.changeOccuring(e)
-            }} className="CommandLineInput" spellCheck="false" type="text"/>
+            }}
+            onKeyDown={this.handleKeyDown}
+            className="CommandLineInput" spellCheck="false" type="text"/>
           <span className="blink">█</span>
         </div>
       </div>
