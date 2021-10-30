@@ -1,5 +1,6 @@
 import React from 'react';
 import CommandLine from './CommandLine';
+import LineOutput from './LineOutput';
 
 class Lines extends React.Component {
 
@@ -19,21 +20,29 @@ class Lines extends React.Component {
 
   commandSubmitted = (value) => {
     this.processCommand(value);
-    console.log(value);
   }
 
   render () {
-    const children = [];
 
-    for (var i = 0; i < this.state.commandCount; i += 1) {
-      //children.push(<Lines key={i} number={i} />);
-      children.push("Jello");
-    };
+
+    const outputs = [
+      {
+        text: "Saab"
+      },
+      {
+        text: "Merc"
+      },
+      {
+        text: "BMW"
+      }
+  ];
 
     return (
-      <CommandLine commandSubmitted = {this.commandSubmitted} >
-        {children}
-      </CommandLine>
+      <div className="CommandLine">
+      <LineOutput lines = {outputs} />
+      <CommandLine commandSubmitted = {this.commandSubmitted} />
+      </div>
+
     );
   }
 

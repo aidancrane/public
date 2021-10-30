@@ -86,8 +86,7 @@ class CommandLine extends React.Component {
   }
 
   render() {
-    return (<div className="CommandLine" onClick={this.focusCommandLine}>
-      <header className="CommandLineBackground"></header>
+    return (<div onClick={this.focusCommandLine}>
       <div className="CommandLineText">
         <div ref={this.line} onClick={this.addChild} className="CommandLineHeadLine">
           aidan@dark.infinityflame.co.uk ¬ /var/www/subdomains/dark >
