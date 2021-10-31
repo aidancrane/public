@@ -9,16 +9,8 @@ class Lines extends React.Component {
     this.state = {
       outputs : [
         {
-          text: "Saab"
-        },
-        {
-          text: "Merc"
-        },
-        {
-          text: "BMW"
-        },
-        {
-          text: "BM1W"
+          text: "version 1.0",
+          index: 0
         }
       ]
     };
@@ -33,7 +25,8 @@ class Lines extends React.Component {
 
  processCommand = (value) => {
    var joined = this.state.outputs.concat({
-             text: " " + value
+             text: " " + value,
+             index: this.state.outputs.length
            });
     this.setState({outputs: joined});
   }
