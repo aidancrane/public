@@ -17,7 +17,7 @@ class LineOutput extends React.Component {
     </div>);
 
     return (
-      <div>{listItems}</div>
+      <div className="outputs">{listItems}</div>
     );
 
   };

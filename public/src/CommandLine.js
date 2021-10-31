@@ -19,8 +19,6 @@ class CommandLine extends React.Component {
     // input box carat location monitor.
     this.commandLengthInEM = 0;
 
-    this.focusCommandLine = this.focusCommandLine.bind(this);
-
   }
 
   // https://stackoverflow.com/a/58705306
@@ -58,17 +56,6 @@ class CommandLine extends React.Component {
     this.setCaretPosition();
   }
 
-  // When a user clicks anywhere on the screen.
-  focusCommandLine() {
-    // Check if a user is selecting text on the screen.
-    var selection = window.getSelection();
-
-    if (selection.toString().length === 0) {
-      // User is not selecting text, they just clicked.
-      this.command.current.focus();
-    }
-  }
-
   // Return command after enter key pressed.
   // Also monitors any input on the keyboard.
   handleKeyDown = (e) => {
@@ -85,10 +72,14 @@ class CommandLine extends React.Component {
     }
   }
 
+  setFocus() {
+      this.command.current.focus();
+  }
+
   render() {
-    return (<div onClick={this.focusCommandLine}>
+    return (
       <div className="CommandLineText">
-        <div ref={this.line} onClick={this.addChild} className="CommandLineHeadLine">
+        <div ref={this.line} className="CommandLineHeadLine">
           aidan@dark.infinityflame.co.uk ¬ /var/www/subdomains/dark >
           <input autoFocus={true} ref={this.command} style={{
               width: this.state.commandLengthInEM,
@@ -101,7 +92,6 @@ class CommandLine extends React.Component {
           <span className="blink">█</span>
         </div>
       </div>
-    </div>
     );
   }
 }
